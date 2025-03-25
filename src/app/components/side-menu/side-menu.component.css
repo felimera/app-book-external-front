@@ -1,0 +1,19 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.content {
+  padding: 16px;
+}
+
+.right_space{
+  margin-right: 10px;
+}
+
+.left_space{
+  margin-left: 10px;
+}
