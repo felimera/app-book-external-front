@@ -16,6 +16,7 @@ import { CustomerComponent } from './components/customer/customer.component';
 import { ScheduleComponent } from './components/schedule/schedule.component';
 import { BookTableComponent } from './components/book-table/book-table.component';
 import { MatTableModule } from '@angular/material/table';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { MatTableModule } from '@angular/material/table';
     MatToolbarModule,
     MatListModule,
     MatIconModule,
-    MatTableModule
+    MatTableModule,
+    HttpClientModule
   ],
   providers: [
     provideClientHydration(),
