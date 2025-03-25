@@ -14,6 +14,8 @@ import { HomeComponent } from './components/home/home.component';
 import { BookComponent } from './components/book/book.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { ScheduleComponent } from './components/schedule/schedule.component';
+import { BookTableComponent } from './components/book-table/book-table.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { ScheduleComponent } from './components/schedule/schedule.component';
     HomeComponent,
     BookComponent,
     CustomerComponent,
-    ScheduleComponent
+    ScheduleComponent,
+    BookTableComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import { ScheduleComponent } from './components/schedule/schedule.component';
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    MatTableModule
   ],
   providers: [
     provideClientHydration(),
