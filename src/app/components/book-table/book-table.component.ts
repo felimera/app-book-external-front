@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Book } from '../../models/book';
+import { Book } from '../../models/book.interface';
 import { BookService } from '../../service/book.service';
-import { error } from 'console';
-import { ResponseInfo } from '../../models/response-info';
+import { ResponseInfo } from '../../models/response-info.interface';
 import { Utilidad } from '../../shared/utils/utilidad';
 
 const ELEMENT_DATA: Book[] = [];
