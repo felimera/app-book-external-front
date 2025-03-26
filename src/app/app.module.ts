@@ -17,6 +17,7 @@ import { ScheduleComponent } from './components/schedule/schedule.component';
 import { BookTableComponent } from './components/book-table/book-table.component';
 import { MatTableModule } from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
+import { CustomerTableComponent } from './components/customer-table/customer-table.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
     BookComponent,
     CustomerComponent,
     ScheduleComponent,
-    BookTableComponent
+    BookTableComponent,
+    CustomerTableComponent
   ],
   imports: [
     BrowserModule,
