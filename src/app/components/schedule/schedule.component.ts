@@ -6,6 +6,7 @@ import { BookService } from '../../service/book.service';
 import { ResponseInfo } from '../../models/response-info.interface';
 import { categoryDto } from '../../models/category.interface';
 import { CategoryService } from '../../service/category.service';
+import { BookcategoryService } from '../../service/bookcategory.service';
 
 @Component({
   selector: 'app-schedule',
@@ -22,7 +23,8 @@ export class ScheduleComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private bookService: BookService,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private bookCategoryService: BookcategoryService
   ) {
     this.formulario = this.formBuilder.group({
       id: [0],
@@ -37,7 +39,13 @@ export class ScheduleComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    console.log(this.formulario.value);
+    console.log('this.formulario.value ', this.formulario.value);
+    this.bookCategoryService
+      .postBookCategory(this.formulario.value)
+      .subscribe({
+        next: (value: ResponseInfo) => console.log(value),
+        error: (err) => console.log(err),
+      })
   }
 
   public cargarLibros(): void {
