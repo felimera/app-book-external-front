@@ -1,1 +1,37 @@
 <p>schedule works!</p>
+
+<mat-tab-group>
+  <mat-tab label="Agendar libros">
+
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+        <div class="celda_izquierda">
+          <h4 class="etiqueta">Libros</h4>
+          <mat-form-field class="seleccionar">
+            <mat-label>Choose an option</mat-label>
+            <mat-select formControlName="idBookInter">
+              <mat-option *ngFor="let item of books" [value]="item.id">{{item.titulo}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="celda_derecha">
+          <h4 class="etiqueta">Categorias</h4>
+          <div>
+            <mat-form-field class="seleccionar">
+              <mat-label >Choose an option</mat-label>
+              <mat-select formControlName="idCategory">
+                <mat-option *ngFor="let item of categories" [value]="item.id">{{item.nombre}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+
+      <div class="celda_abajo">
+        <button mat-raised-button color="primary" type="submit">Enviar</button>
+      </div>
+    </form>
+
+  </mat-tab>
+  <mat-tab label="Administrar categorias"> Content 2 </mat-tab>
+</mat-tab-group>

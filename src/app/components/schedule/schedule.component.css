@@ -1,0 +1,36 @@
+form {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: 1fr 1fr;
+}
+
+.celda_izquierda {
+  margin: 0.5em;
+  grid-column: 1;
+}
+
+.celda_derecha {
+  margin: 0.5em;
+  grid-column: 2;
+}
+
+.celda_abajo {
+  margin: 0.5em;
+  grid-column: 1 / 3;
+}
+
+.celda_abajo button {
+  margin: 0.5em;
+  width: 99%;
+}
+
+.seleccionar {
+  display: table;
+  width: 100%;
+}
+
+.etiqueta {
+  display: table-cell;
+  font-size: 14px;
+  min-width: 120px;
+}

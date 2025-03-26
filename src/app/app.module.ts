@@ -18,6 +18,10 @@ import { BookTableComponent } from './components/book-table/book-table.component
 import { MatTableModule } from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
 import { CustomerTableComponent } from './components/customer-table/customer-table.component';
+import { MatSelectModule } from '@angular/material/select';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -38,6 +42,10 @@ import { CustomerTableComponent } from './components/customer-table/customer-tab
     MatListModule,
     MatIconModule,
     MatTableModule,
+    MatSelectModule,
+    MatButtonModule,
+    ReactiveFormsModule,
+    MatTabsModule,
     HttpClientModule
   ],
   providers: [

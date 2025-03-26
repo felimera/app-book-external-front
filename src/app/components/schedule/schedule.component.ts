@@ -1,10 +1,70 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { BookCategory } from '../../models/bookcategory.interface';
+import { Book } from '../../models/book.interface';
+import { BookService } from '../../service/book.service';
+import { ResponseInfo } from '../../models/response-info.interface';
+import { categoryDto } from '../../models/category.interface';
+import { CategoryService } from '../../service/category.service';
 
 @Component({
   selector: 'app-schedule',
   templateUrl: './schedule.component.html',
   styleUrl: './schedule.component.css'
 })
-export class ScheduleComponent {
+export class ScheduleComponent implements OnInit {
 
+  disableSelect = new FormControl(false);
+  formulario: FormGroup;
+  public books: Book[] = [];
+  public categories: categoryDto[] = [];
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private bookService: BookService,
+    private categoryService: CategoryService
+  ) {
+    this.formulario = this.formBuilder.group({
+      id: [0],
+      idBookInter: [0, Validators.required],
+      idCategory: [0, Validators.required]
+    });
+  }
+
+  ngOnInit(): void {
+    this.cargarLibros();
+    this.cargarCategorias();
+  }
+
+  public onSubmit(): void {
+    console.log(this.formulario.value);
+  }
+
+  public cargarLibros(): void {
+    this.bookService
+      .getAllBook()
+      .subscribe({
+        next: (value: ResponseInfo) => {
+          if (value && value.data) {
+            for (const item of value.data)
+              this.books.push(item);
+          }
+        },
+        error: (err) => console.log(err)
+      });
+  }
+
+  public cargarCategorias(): void {
+    this.categoryService
+      .getAllCategory()
+      .subscribe({
+        next: (value: ResponseInfo) => {
+          if (value && value.data) {
+            for (const item of value.data)
+              this.categories.push(item);
+          }
+        },
+        error: (err) => console.log(err)
+      });
+  }
 }
