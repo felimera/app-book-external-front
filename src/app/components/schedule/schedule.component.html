@@ -4,33 +4,38 @@
   <mat-tab label="Agendar libros">
 
     <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
-        <div class="celda_izquierda">
-          <h4 class="etiqueta">Libros</h4>
+      <div class="celda_izquierda">
+        <h4 class="etiqueta">Libros</h4>
+        <mat-form-field class="seleccionar">
+          <mat-label>Choose an option</mat-label>
+          <mat-select formControlName="idBookInter">
+            <mat-option *ngFor="let item of books" [value]="item.id">{{item.titulo}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="celda_derecha">
+        <h4 class="etiqueta">Categorias</h4>
+        <div>
           <mat-form-field class="seleccionar">
             <mat-label>Choose an option</mat-label>
-            <mat-select formControlName="idBookInter">
-              <mat-option *ngFor="let item of books" [value]="item.id">{{item.titulo}}</mat-option>
+            <mat-select formControlName="idCategory">
+              <mat-option *ngFor="let item of categories" [value]="item.id">{{item.nombre}}</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
-
-        <div class="celda_derecha">
-          <h4 class="etiqueta">Categorias</h4>
-          <div>
-            <mat-form-field class="seleccionar">
-              <mat-label >Choose an option</mat-label>
-              <mat-select formControlName="idCategory">
-                <mat-option *ngFor="let item of categories" [value]="item.id">{{item.nombre}}</mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
-        </div>
+      </div>
 
 
       <div class="celda_abajo">
-        <button mat-raised-button color="primary" type="submit">Enviar</button>
+        <button mat-raised-button color="primary" type="submit">Guardar</button>
       </div>
     </form>
+
+    <div class="celda_abajo">
+      <h4>Lista de contenido</h4>
+      <app-tree-node></app-tree-node>
+    </div>
 
   </mat-tab>
   <mat-tab label="Administrar categorias"> Content 2 </mat-tab>

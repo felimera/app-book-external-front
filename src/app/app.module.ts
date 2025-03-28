@@ -22,6 +22,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
+import { TreeNodeComponent } from './components/tree-node/tree-node.component';
+import { MatTreeModule } from '@angular/material/tree';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     CustomerComponent,
     ScheduleComponent,
     BookTableComponent,
-    CustomerTableComponent
+    CustomerTableComponent,
+    TreeNodeComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatButtonModule,
     ReactiveFormsModule,
     MatTabsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTreeModule
   ],
   providers: [
     provideClientHydration(),

@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { BookCategory } from '../../models/bookcategory.interface';
 import { Book } from '../../models/book.interface';
 import { BookService } from '../../service/book.service';
 import { ResponseInfo } from '../../models/response-info.interface';
 import { categoryDto } from '../../models/category.interface';
 import { CategoryService } from '../../service/category.service';
 import { BookcategoryService } from '../../service/bookcategory.service';
+import { TreeNodeComponent } from '../tree-node/tree-node.component';
 
 @Component({
   selector: 'app-schedule',
@@ -14,6 +14,8 @@ import { BookcategoryService } from '../../service/bookcategory.service';
   styleUrl: './schedule.component.css'
 })
 export class ScheduleComponent implements OnInit {
+
+  @ViewChild(TreeNodeComponent) treeNodeComponent!: TreeNodeComponent;
 
   disableSelect = new FormControl(false);
   formulario: FormGroup;
@@ -43,9 +45,14 @@ export class ScheduleComponent implements OnInit {
     this.bookCategoryService
       .postBookCategory(this.formulario.value)
       .subscribe({
-        next: (value: ResponseInfo) => console.log(value),
+        next: (value: ResponseInfo) => {
+          if (value && value.meta.status == 'SUCCESS') {
+            console.log(value);
+            this.treeNodeComponent?.cargarDatos();
+          }
+        },
         error: (err) => console.log(err),
-      })
+      });
   }
 
   public cargarLibros(): void {
