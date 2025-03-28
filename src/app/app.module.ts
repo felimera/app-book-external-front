@@ -24,6 +24,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
 import { TreeNodeComponent } from './components/tree-node/tree-node.component';
 import { MatTreeModule } from '@angular/material/tree';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -50,7 +53,10 @@ import { MatTreeModule } from '@angular/material/tree';
     ReactiveFormsModule,
     MatTabsModule,
     HttpClientModule,
-    MatTreeModule
+    MatTreeModule,
+    MatExpansionModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [
     provideClientHydration(),
